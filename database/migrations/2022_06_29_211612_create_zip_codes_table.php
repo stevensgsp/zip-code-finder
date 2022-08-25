@@ -16,12 +16,15 @@ return new class extends Migration
         Schema::create('zip_codes', function (Blueprint $table) {
             $table->id();
 
-            $table->string('zip_code')->unique();
-            $table->foreign('locality_id')->nullable()->constrained();
-            $table->foreign('federal_entity_id')->nullable()->constrained();
-            $table->foreign('minicipality_id')->nullable()->constrained();
+            $table->string('zip_code');
+            $table->json('locality')->nullable();
+            $table->json('federal_entity')->nullable();
+            $table->json('municipality')->nullable();
+            $table->json('settlements')->nullable();
 
             $table->timestamps();
+
+            $table->unique('zip_code');
         });
     }
 
