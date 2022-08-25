@@ -4,6 +4,18 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
+/**
+ * @OA\Schema(
+ *     schema="Settlement",
+ *     @OA\Property(property="key", type="integer"),
+ *     @OA\Property(property="name", type="string"),
+ *     @OA\Property(property="zone_type", type="string"),
+ *     @OA\Property(property="settlement_type",
+ *         type="object",
+ *         @OA\Property(property="name", type="string")
+ *     )
+ * )
+ */
 class SettlementResource extends JsonResource
 {
     /**

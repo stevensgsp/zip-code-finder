@@ -5,6 +5,25 @@ namespace App\Http\Resources;
 use App\Http\Resources\SettlementResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
+/**
+ * @OA\Schema(
+ *     schema="ZipCode",
+ *     @OA\Property(property="zip_code", type="string"),
+ *     @OA\Property(property="locality", type="string"),
+ *     @OA\Property(property="federal_entity",
+ *         type="object",
+ *         @OA\Property(property="key", type="integer", format="int32"),
+ *         @OA\Property(property="name", type="string"),
+ *         @OA\Property(property="code", type="string", nullable=true)
+ *     ),
+ *     @OA\Property(property="settlements", type="array", @OA\Items(ref="#/components/schemas/Settlement")),
+ *     @OA\Property(property="municipality",
+ *         type="object",
+ *         @OA\Property(property="key", type="integer", format="int32"),
+ *         @OA\Property(property="name", type="string")
+ *     )
+ * )
+ */
 class ZipCodeResource extends JsonResource
 {
     /**
